@@ -4,11 +4,33 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+import javax.swing.*;
+import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
+
+    @Test
+        void appHasAGreeting() {
+        // Appクラスのインスタンスを作成
         App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+
+        // JFrameを作成して、ラベルを表示
+        JFrame frame = new JFrame();
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // JLabelを作成して表示
+        JLabel label = new JLabel(classUnderTest.getGreeting(), SwingConstants.CENTER);
+        frame.add(label);
+
+        // UIを表示させる
+        frame.setVisible(true);
+
+        // JLabelに設定したテキストが正しいかをチェック
+        assertEquals("Hello, World!", label.getText(), "The greeting message should be 'Hello, World!'");
+
+        // テストが終わったらフレームを閉じる
+        frame.dispose();
     }
 }

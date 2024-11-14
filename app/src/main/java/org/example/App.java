@@ -3,12 +3,28 @@
  */
 package org.example;
 
+import javax.swing.*;
+
 public class App {
     public String getGreeting() {
-        return "Hello World!";
+        return "Hello, World!";
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        // UIの作成
+        JFrame frame = new JFrame("Hello, World App");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // 文字を表示するラベル
+        JLabel label = new JLabel(new App().getGreeting(), SwingConstants.CENTER);
+
+        // をフレームに追加
+        frame.add(label);
+
+        // フレームのサイズを設定して表示
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+
     }
 }
