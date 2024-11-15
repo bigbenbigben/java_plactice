@@ -40,8 +40,17 @@ application {
 }
 
 tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
     useJUnitPlatform()
-    reports.junitXml.required.set(true) // JUnitのXMLレポートを生成
-
+    reports {
+        junitXml.required.set(true)
+        junitXml.outputLocation.set(file("$buildDir/test-results/test")) // レポートのパス確認用
+    }
 }
+
+
+// tasks.named<Test>("test") {
+//     // Use JUnit Platform for unit tests.
+//     useJUnitPlatform()
+//     reports.junitXml.required.set(true) // JUnitのXMLレポートを生成
+
+// }
