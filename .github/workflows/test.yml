@@ -27,9 +27,15 @@ jobs:
     - name: Run tests with Gradle
       run: ./gradlew test  # JUnitテストの実行
 
-    - name: Upload test results
-      if: always()  # テスト結果をアップロード（成功・失敗に関わらず）
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: build/test-results/test  # テスト結果のパス
+- name: Upload Test Results
+  uses: actions/upload-artifact@v3
+  with:
+    name: test-results
+    path: path/to/test-results/*.xml
+
+    # - name: Upload test results
+    #   if: always()  # テスト結果をアップロード（成功・失敗に関わらず）
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: test-results
+    #     path: build/test-results/test  # テスト結果のパス
