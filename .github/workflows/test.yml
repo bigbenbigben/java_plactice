@@ -1,0 +1,35 @@
+name: Run JUnit tests
+
+on:
+  push:
+    branches:
+      - main  # 'main'ブランチにプッシュされたときに実行
+  pull_request:
+    branches:
+      - main  # 'main'ブランチに対するPRが作成されたときに実行
+
+jobs:
+  build:
+    runs-on: windows-latest  # 使用するOS（例: Ubuntu）
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # コードをチェックアウト
+
+    - name: Set up Java
+      uses: actions/setup-java@v2  # Javaをセットアップ
+      with:
+        java-version: '21'  # 使用するJavaのバージョン
+
+    - name: Build with Gradle
+      run: ./gradlew build  # Gradleビルドの実行
+
+    - name: Run tests with Gradle
+      run: ./gradlew test  # JUnitテストの実行
+
+    - name: Upload test results
+      if: always()  # テスト結果をアップロード（成功・失敗に関わらず）
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: build/test-results/test  # テスト結果のパス
