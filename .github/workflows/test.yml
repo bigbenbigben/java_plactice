@@ -29,6 +29,7 @@ jobs:
       uses: actions/setup-java@v3  # Javaをセットアップ
       with:
         java-version: '21'  # 使用するJavaのバージョン
+        distribution: 'adoptopenjdk'
 
     - name: Build with Gradle
       run: ./gradlew build  # Gradleビルドの実行
