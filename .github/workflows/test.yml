@@ -12,12 +12,21 @@ jobs:
   build:
     runs-on: windows-latest  # 使用するOS（例: Ubuntu）
 
+    # steps:
+    # - name: Checkout code
+    #   uses: actions/checkout@v2  # コードをチェックアウト
+
+    # - name: Set up Java
+    #   uses: actions/setup-java@v2  # Javaをセットアップ
+    #   with:
+    #     java-version: '21'  # 使用するJavaのバージョン
+
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  # コードをチェックアウト
+      uses: actions/checkout@v3  # コードをチェックアウト
 
     - name: Set up Java
-      uses: actions/setup-java@v2  # Javaをセットアップ
+      uses: actions/setup-java@v3  # Javaをセットアップ
       with:
         java-version: '21'  # 使用するJavaのバージョン
 
