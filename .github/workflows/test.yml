@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # 使用するOS（例: Ubuntu）
+    runs-on: windows-latest  # 使用するOS（例: Ubuntu）
 
     steps:
     - name: Checkout code

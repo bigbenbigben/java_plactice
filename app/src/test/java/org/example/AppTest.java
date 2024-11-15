@@ -5,7 +5,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 import javax.swing.*;
-import java.awt.*;
+// import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
