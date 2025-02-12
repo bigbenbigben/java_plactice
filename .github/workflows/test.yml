@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+    name: build-test
     runs-on: windows-latest  # 使用するOS（例: Ubuntu）
 
     # steps:
